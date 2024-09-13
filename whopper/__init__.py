@@ -3,6 +3,8 @@ from . import db
 
 app = Flask(__name__)
 db.init_app(app)
+from . import auth
+app.register_blueprint(auth.bp)
 
 @app.route("/")
 def index():
