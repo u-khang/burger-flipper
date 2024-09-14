@@ -31,8 +31,34 @@ def register():
             except db.IntegrityError:
                 return f"Username {username} is already registered."
             else:
-                return "login"
+                return redirect(url_for("auth.login"))
+
+        flash(f"flashing {error}")
+
+    return render_template("auth/register.html") 
+
+
+
+@bp.route('/login', methods=('GET','POST'))
+def login():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        db = get_db()
+        error  = None
+        user = db.execute(
+            'SELECT * FROM user WHERE username = ?', (username,)
+        ).fetchone()
+
+        if user is None:
+            error = 'Incorrect username.'
+        elif not check_password_hash(user['password'], password):
+            error = 'Incorrect password.'
+        
+        if error is None:
+            return redirect(url_for('index'))
 
         flash(error)
+    
+    return render_template('auth/login.html')
 
-    return render_template("register.html") 
