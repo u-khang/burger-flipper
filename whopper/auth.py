@@ -24,7 +24,8 @@ def register():
             try:
                 db.execute(
                     "INSERT INTO user (username, password) VALUES (?, ?)",
-                    (username, generate_password_hash(password))
+                    # can't get scrypt to work use pbkdf2 instead
+                    (username, generate_password_hash(password, 'pbkdf2'))
                 )
                 db.commit()
             except db.IntegrityError:
