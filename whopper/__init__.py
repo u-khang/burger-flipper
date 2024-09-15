@@ -1,7 +1,12 @@
+import os
 from flask import Flask, render_template
 from . import db
 
 app = Flask(__name__)
+app.config.from_mapping(
+    SECRET_KEY='manilovefauna',
+    DATABASE=os.path.join(app.instance_path, 'whopper.sqlite'),
+)
 db.init_app(app)
 from . import auth
 app.register_blueprint(auth.bp)
