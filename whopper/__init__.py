@@ -9,7 +9,7 @@ app.config.from_mapping(
 )
 db.init_app(app)
 from . import auth
-app.register_blueprint(auth.bp)
+app.register_blueprint(auth.auth_bp)
 
 @app.route("/")
 def index():

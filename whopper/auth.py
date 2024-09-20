@@ -5,9 +5,9 @@ from werkzeug.security import check_password_hash, generate_password_hash
 
 from whopper.db import get_db
 
-bp = Blueprint('auth', __name__, url_prefix='/auth')
+auth_bp = Blueprint('auth', __name__, url_prefix='/auth')
 
-@bp.route('/register', methods=('GET', 'POST'))
+@auth_bp.route('/register', methods=('GET', 'POST'))
 def register():
     if request.method == 'POST':
         username = request.form['username']
@@ -39,7 +39,7 @@ def register():
 
 
 
-@bp.route('/login', methods=('GET','POST'))
+@auth_bp.route('/login', methods=('GET','POST'))
 def login():
     if request.method == 'POST':
         username = request.form['username']
