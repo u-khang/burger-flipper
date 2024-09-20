@@ -1,7 +1,17 @@
 DROP TABLE IF EXISTS user;
+DROP TABLE IF EXISTS ticket;
 
 CREATE TABLE user (
    id INTEGER PRIMARY KEY AUTOINCREMENT,
    username TEXT UNIQUE NOT NULL,
-   password TEXT NOT NULL
+   password TEXT NOT NULL,
+   gold INTEGER DEFAULT 0
+);
+
+CREATE TABLE ticket (
+   ticket_id INTEGER PRIMARY KEY AUTOINCREMENT,
+   user_id INTEGER NOT NULL,
+   redeemed INTEGER DEFAULT 0,
+   numbers TEXT,
+   winnings REAL DEFAULT 0
 );
