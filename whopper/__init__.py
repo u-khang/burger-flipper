@@ -20,4 +20,8 @@ def user(name):
     return render_template("user.html", name=name)
 
 
+@app.route("/ticket")
+def ticket():
+    return render_template("ticket.html")
+
 
