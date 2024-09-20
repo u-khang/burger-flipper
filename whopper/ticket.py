@@ -3,4 +3,7 @@ from flask import (
 )
 from whopper.db import get_db
 
-bp = Blueprint('auth', __name__)
+ticket_bp = Blueprint('ticket', __name__)
+@ticket_bp.route('/ticket', methods=('GET', 'POST'))
+def ticket():
+    return render_template('ticket.html')
