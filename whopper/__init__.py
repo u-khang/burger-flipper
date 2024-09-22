@@ -8,9 +8,10 @@ app.config.from_mapping(
     DATABASE=os.path.join(app.instance_path, 'whopper.sqlite'),
 )
 db.init_app(app)
-from . import auth, ticket
+from . import auth, ticket, main
 app.register_blueprint(auth.auth_bp)
 app.register_blueprint(ticket.ticket_bp)
+app.register_blueprint(main.main_bp)
 
 @app.route("/")
 def index():
@@ -19,10 +20,5 @@ def index():
 @app.route("/user/<name>")
 def user(name):
     return render_template("user.html", name=name)
-
-
-# @app.route("/ticket")
-# def ticket():
-#     return render_template("ticket.html")
 
 

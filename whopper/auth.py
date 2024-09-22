@@ -53,10 +53,8 @@ def login():
 
         if user is None:
             error = 'Incorrect username.'
-            print(error)
         elif not check_password_hash(user[2], password):
             error = 'Incorrect password.'
-            print(error)
         
         if error is None:
             session.clear()

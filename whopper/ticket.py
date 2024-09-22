@@ -13,9 +13,8 @@ def ticket():
         db = get_db()
         error = None
 
-        print(session['user_id'])
-        print(type(n1))
-        print(f"{n1}{n2}{n3}")
+        if n1 == n2 or n1 == n3 or n2 == n3:
+            error = "numbers cannot repeat"
 
         if error is None:
             db.execute(
@@ -23,6 +22,9 @@ def ticket():
                 (session['user_id'], f"{n1}{n2}{n3}")
             )
             db.commit()
-        return redirect(url_for('ticket.ticket'))
+            return redirect(url_for('ticket.ticket'))
+
+        print(error)
+        flash(error)
 
     return render_template('ticket.html')

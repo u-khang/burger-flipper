@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 	<head>
 		<title>buy a ticket</title>
@@ -13,4 +13,20 @@
                 	<input type="submit" value="Purchase">
                 </form>
 	</body>
-</html>
+</html> -->
+
+{% extends 'base.html' %}
+
+{% block title %}buy a ticket{% endblock %}
+{% block header %}buy a ticket{% endblock %}
+
+{% block content %}
+	<form method="post">
+		<label for="ticket-numbers">Choose your winning numbers</label>
+		<input type="number" name="n1" id="ticket-numbers"  min="0" max="9" required>
+		<input type="number" name="n2" min="0" max="9" required>
+		<input type="number" name="n3" min="0" max="9" required>
+		<input type="submit" value="Purchase">
+	</form>
+{% endblock %}
+
