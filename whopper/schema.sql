@@ -1,5 +1,6 @@
 DROP TABLE IF EXISTS user;
 DROP TABLE IF EXISTS ticket;
+DROP TABLE IF EXISTS drawing;
 
 CREATE TABLE user (
    id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -15,3 +16,9 @@ CREATE TABLE ticket (
    numbers TEXT,
    winnings REAL DEFAULT 0
 );
+
+CREATE TABLE drawing (
+   draw_id INTEGER PRIMARY KEY AUTOINCREMENT,
+   draw_date TEXT NOT NULL,
+   winning_nums TEXT NOT NULL,
+)
