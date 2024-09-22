@@ -1,6 +1,9 @@
 from flask import (
     Blueprint, flash, g, redirect, render_template, request, session, url_for
 )
+import random
+import schedule
+import time
 from whopper.db import get_db
 
 ticket_bp = Blueprint('ticket', __name__)
@@ -28,3 +31,9 @@ def ticket():
         flash(error)
 
     return render_template('ticket.html')
+
+def generate_winning_nums():
+    random_list = random.sample(range(10), 3)
+    random_tuple = tuple(random_list)
+    print(random_tuple)
+    return random_tuple

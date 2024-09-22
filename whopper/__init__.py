@@ -1,6 +1,7 @@
 import os
 from flask import Flask, render_template
 from . import db
+from whopper.ticket import generate_winning_nums
 
 app = Flask(__name__)
 app.config.from_mapping(
@@ -12,6 +13,8 @@ from . import auth, ticket, main
 app.register_blueprint(auth.auth_bp)
 app.register_blueprint(ticket.ticket_bp)
 app.register_blueprint(main.main_bp)
+
+generate_winning_nums()
 
 @app.route("/")
 def index():
