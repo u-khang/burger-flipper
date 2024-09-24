@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 
 {% block title %}user{% endblock %}
-{% block header %}user{% endblock %}
+{% block header %}<p>hello {{ g.user[1] }}<p>{% endblock %}
 
 {% block content %}
-	<p>hello {{ g.user[1] }}<p>
+
 {% endblock %}
 

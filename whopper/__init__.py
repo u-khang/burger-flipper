@@ -10,10 +10,11 @@ app.config.from_mapping(
 )
 
 db.init_app(app)
-from . import auth, ticket, main
+from . import auth, ticket, main, user
 app.register_blueprint(auth.auth_bp)
 app.register_blueprint(ticket.ticket_bp)
 app.register_blueprint(main.main_bp)
+app.register_blueprint(user.user_bp)
 
 
 from whopper.ticket import generate_winning_nums
