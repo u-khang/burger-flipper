@@ -4,6 +4,11 @@
 {% block header %}<p>hello {{ g.user[1] }}<p>{% endblock %}
 
 {% block content %}
+	<h1>Your tickets:</h1>
+	{% for ticket in user_tickets %}
+		{{ ticket }}
+		<br>
+	{% endfor %}
 
 {% endblock %}
 
