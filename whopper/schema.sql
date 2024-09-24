@@ -20,5 +20,5 @@ CREATE TABLE ticket (
 CREATE TABLE drawing (
    draw_id INTEGER PRIMARY KEY AUTOINCREMENT,
    draw_date TEXT NOT NULL,
-   winning_nums TEXT NOT NULL,
-)
+   winning_nums TEXT NOT NULL
+);

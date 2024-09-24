@@ -21,31 +21,29 @@ import threading, time
 from datetime import datetime
 
 
-# def drawing_loop():
-#     while True:
-#         with app.app_context():
-#             winning_nums = generate_winning_nums()
-#             print(winning_nums[0])
-#             my_db = db.get_db()
+def drawing_loop():
+    while True:
+        with app.app_context():
+            winning_nums = generate_winning_nums()
+            my_db = db.get_db()
+            error = None
 
-#             error = None
+            if error is None:
+                my_db.execute(
+                    "INSERT INTO drawing (draw_date, winning_nums) VALUES (?, ?)",
+                    ('empty date',''.join(map(str, winning_nums)))
+                )
+                my_db.commit()
 
-#             if error is None:
-#                 my_db.execute(
-#                     "INSERT INTO drawing (draw_date, winning_nums) VALUES (?, ?)",
-#                     winning_nums
-#                 )
-#                 my_db.commit()
-
-#             print(error)
-#             # flash(error)
+            # print(error)
+            # flash(error)
 
 
-#             time.sleep(5)
+            time.sleep(5)
 
-# thread = threading.Thread(target=drawing_loop)
-# thread.daemon = True
-# thread.start()
+thread = threading.Thread(target=drawing_loop)
+thread.daemon = True
+thread.start()
 
 
 @app.route("/")
