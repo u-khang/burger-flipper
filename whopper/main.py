@@ -1,11 +1,11 @@
 from flask import (
-    Blueprint, flash, g, redirect, render_template, request, session, url_for
+    Blueprint, flash, g, redirect, render_template, request, session, url_for, current_app
 )
 # from whopper.db import get_db
 
-from whopper.ticket import generate_winning_nums
-import threading, time
-from datetime import datetime
+# from whopper.ticket import generate_winning_nums
+# import threading, time
+# from datetime import datetime
 
 
 # def drawing_loop():
@@ -39,4 +39,4 @@ from datetime import datetime
 main_bp = Blueprint('main', __name__)
 @main_bp.route('/', methods=('GET', 'POST'))
 def main():
-    return render_template('index.html')
+    return render_template('index.html', winning_nums = current_app.winning_nums)

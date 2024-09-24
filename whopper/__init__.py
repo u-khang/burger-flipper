@@ -25,6 +25,7 @@ def drawing_loop():
     while True:
         with app.app_context():
             winning_nums = generate_winning_nums()
+            current_app.winning_nums = winning_nums
             my_db = db.get_db()
             error = None
 
