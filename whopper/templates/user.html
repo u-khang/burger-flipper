@@ -1,9 +1,9 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>user</title>
-	</head>
-	<body>
-		<h1>hello {{ g.user[1] }}</h1>
-	</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}user{% endblock %}
+{% block header %}user{% endblock %}
+
+{% block content %}
+	<p>hello {{ g.user[1] }}<p>
+{% endblock %}
+

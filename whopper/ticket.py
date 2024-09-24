@@ -2,8 +2,7 @@ from flask import (
     Blueprint, flash, g, redirect, render_template, request, session, url_for
 )
 import random
-import schedule
-import time
+from datetime import datetime
 from whopper.db import get_db
 
 ticket_bp = Blueprint('ticket', __name__)
@@ -21,8 +20,8 @@ def ticket():
 
         if error is None:
             db.execute(
-                "INSERT INTO ticket (user_id, numbers) VALUES (?, ?)",
-                (session['user_id'], f"{n1}{n2}{n3}")
+                "INSERT INTO ticket (user_id, date_obtained, numbers) VALUES (?, ?, ?)",
+                (session['user_id'], datetime.now(), f"{n1}{n2}{n3}")
             )
             db.commit()
             return redirect(url_for('ticket.ticket'))

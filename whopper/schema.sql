@@ -12,8 +12,9 @@ CREATE TABLE user (
 CREATE TABLE ticket (
    ticket_id INTEGER PRIMARY KEY AUTOINCREMENT,
    user_id INTEGER NOT NULL,
+   date_obtained TEXT NOT NULL,
+   numbers TEXT NOT NULL,
    redeemed INTEGER DEFAULT 0,
-   numbers TEXT,
    winnings REAL DEFAULT 0
 );
 
