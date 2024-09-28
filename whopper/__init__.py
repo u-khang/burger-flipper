@@ -38,9 +38,8 @@ def drawing_loop():
 
             if error is None:
                 my_db.execute(
-                    "INSERT INTO drawing (draw_date, winning_nums) VALUES (?, ?)",
-                    (datetime.now(),''.join(map(str, winning_nums)))
-                    # O GOD IMPLEMENT THIS PLEASE CHECK THE NEW SCHEMA
+                    "INSERT INTO drawing (draw_date, winning_nums, jackpot, second_prize, third_prize) VALUES (?, ?, ?, ?, ?)",
+                    (datetime.now(),''.join(map(str, winning_nums)), 329419243, 4321, 52)
                 )
                 my_db.commit()
 

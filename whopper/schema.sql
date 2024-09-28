@@ -23,7 +23,7 @@ CREATE TABLE drawing (
    draw_id INTEGER PRIMARY KEY AUTOINCREMENT,
    draw_date TEXT NOT NULL,
    winning_nums TEXT NOT NULL,
-   jackpot REAL NOT NULL,
-   second_prize REAL NOT NULL,
-   third_prize REAL NOT NULL
+   jackpot INTEGER NOT NULL,
+   second_prize INTEGER NOT NULL,
+   third_prize INTEGER NOT NULL
 );

@@ -60,11 +60,12 @@ def scan_ticket():
             break
 
     ticket_nums = ticket_data[3]
-    drawing_nums = drawing_data[2]
+    drawing_nums = matched_drawing[2]
     num_matches = common_numbers(ticket_nums, drawing_nums)
-    print(num_matches)
 
-    return f'{matched_drawing}'
+
+
+    return f'{matched_drawing}\n{num_matches}'
 
 def common_numbers(numstr1, numstr2):
     common_nums = set(numstr1) & set(numstr2)
