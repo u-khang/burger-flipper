@@ -36,3 +36,8 @@ def generate_winning_nums():
     random_tuple = tuple(random_list)
     print(random_tuple)
     return random_tuple
+
+@ticket_bp.route('/scan-ticket')
+def scan_ticket():
+    db = get_db()
+    return 0
