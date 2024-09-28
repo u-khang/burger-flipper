@@ -40,6 +40,7 @@ def generate_winning_nums():
 @ticket_bp.route('/SCAN_TICKET')
 def scan_ticket():
     # use queries to check ticket winnings. for js fetch calls. return # of matching nums
+    
     ticket_id = request.args.get('ticket_id', default=None)
     db = get_db()
 

@@ -7,11 +7,16 @@
 </head>
 <body>
     <nav>
-        <h1>FaunaLotto</h1>
+        <a href="/"><h1>FaunaLotto</h1><a>
+        <a href="/ticket">buy a ticket</a>
+        <a href="/user">profile</a>
         <ul>
         {% if g.user %}
             <li>{{ g.user[1] }}</li>
             <li>gold: {{ g.user[3] }}</li>
+            <li>
+                <a href="/auth/logout">Logout</a>
+            </li>
         {% else %}
             <li><a href="{{ url_for('auth.register') }}">Register</a></li>
             <li><a href="{{ url_for('auth.login') }}">Login</a></li>
