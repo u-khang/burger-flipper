@@ -40,7 +40,7 @@ def generate_winning_nums():
 @ticket_bp.route('/SCAN_TICKET')
 def scan_ticket():
     # use queries to check ticket winnings. for js fetch calls. return # of matching nums
-    
+
     ticket_id = request.args.get('ticket_id', default=None)
     db = get_db()
 
@@ -49,7 +49,6 @@ def scan_ticket():
 
 
     ticket_obtained_date = ticket_data[2]
-    ticket_numbers = ticket_data[3]
     matched_drawing = ''
 
     for drawing in drawing_data:
@@ -60,4 +59,14 @@ def scan_ticket():
             matched_drawing = drawing
             break
 
+    ticket_nums = ticket_data[3]
+    drawing_nums = drawing_data[2]
+    num_matches = common_numbers(ticket_nums, drawing_nums)
+    print(num_matches)
+
     return f'{matched_drawing}'
+
+def common_numbers(numstr1, numstr2):
+    common_nums = set(numstr1) & set(numstr2)
+    print(type(common_nums))
+    return len(common_nums)

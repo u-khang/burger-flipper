@@ -15,11 +15,15 @@ CREATE TABLE ticket (
    date_obtained TEXT NOT NULL,
    numbers TEXT NOT NULL,
    redeemed INTEGER DEFAULT 0,
-   winnings REAL DEFAULT 0
+   winnings REAL DEFAULT 0,
+   matches INTEGER
 );
 
 CREATE TABLE drawing (
    draw_id INTEGER PRIMARY KEY AUTOINCREMENT,
    draw_date TEXT NOT NULL,
-   winning_nums TEXT NOT NULL
+   winning_nums TEXT NOT NULL,
+   jackpot REAL NOT NULL,
+   second_prize REAL NOT NULL,
+   third_prize REAL NOT NULL
 );

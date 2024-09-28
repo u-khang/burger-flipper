@@ -40,6 +40,7 @@ def drawing_loop():
                 my_db.execute(
                     "INSERT INTO drawing (draw_date, winning_nums) VALUES (?, ?)",
                     (datetime.now(),''.join(map(str, winning_nums)))
+                    # O GOD IMPLEMENT THIS PLEASE CHECK THE NEW SCHEMA
                 )
                 my_db.commit()
 
