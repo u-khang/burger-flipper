@@ -60,4 +60,3 @@ def index():
 def user():
     return render_template("user.html")
 
-

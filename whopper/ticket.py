@@ -37,7 +37,26 @@ def generate_winning_nums():
     print(random_tuple)
     return random_tuple
 
-@ticket_bp.route('/scan-ticket')
+@ticket_bp.route('/SCAN_TICKET')
 def scan_ticket():
+    # use queries to check ticket winnings. for js fetch calls. return # of matching nums
+    ticket_id = request.args.get('ticket_id', default=None)
     db = get_db()
-    return 0
+
+    drawing_data = db.execute('SELECT * FROM drawing ORDER BY draw_date').fetchall()
+    ticket_data = db.execute(f'SELECT * FROM ticket WHERE ticket_id = {ticket_id}').fetchone()
+
+
+    ticket_obtained_date = ticket_data[2]
+    ticket_numbers = ticket_data[3]
+    matched_drawing = ''
+
+    for drawing in drawing_data:
+        drawing_date = drawing[1]
+        if drawing_date < ticket_obtained_date:
+            continue
+        else:
+            matched_drawing = drawing
+            break
+
+    return f'{matched_drawing}'

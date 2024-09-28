@@ -7,10 +7,13 @@
 	<h1>Your tickets:</h1>
 	<ul>
 	{% for ticket in user_tickets %}
-		{{ ticket }}
-		<button>Scan</button>
-		<button>Redeem</button>
-		<br>
+		<li id = {{ ticket[0] }}>
+			<div>
+			{{ ticket }}
+			</div>
+			<button>Scan</button>
+			<button>Redeem</button>
+		</li>
 	{% endfor %}
 	</ul>
 

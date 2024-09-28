@@ -14,7 +14,7 @@ def user():
         ).fetchall()
     except:
         return 'uh oh something happened'
-    print(user_tickets)
+    
 
     if request.method == 'POST':
         error = None
